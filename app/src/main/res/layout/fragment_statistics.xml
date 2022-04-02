@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/StatisticsFragmentText"
+        style="@style/FragmentTextStyle"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:textAlignment="center"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="50dp"
+        android:text="@string/raf_jira_statistics"/>
+
+    <TextView
+        android:id="@+id/StatisticsFragmentToDoText"
+        style="@style/FragmentTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="150dp"
+        android:text="@string/todo"
+        android:textColor="@color/red"/>
+
+    <TextView
+        android:id="@+id/StatisticsFragmentToDoInput"
+        style="@style/FragmentTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="350dp"
+        android:layout_marginTop="150dp"
+        android:textSize="24sp"
+        android:textColor="@color/red"/>
+
+    <TextView
+        android:id="@+id/StatisticsFragmentToDoEnhancementsText"
+        style="@style/FragmentTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="200dp"
+        android:text="@string/enhancements"/>
+
+    <TextView
+        android:id="@+id/StatisticsFragmentToDoEnhancementsInput"
+        style="@style/FragmentTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="350dp"
+        android:layout_marginTop="200dp"
+        android:textSize="24sp"/>
+
+    <TextView
+        android:id="@+id/StatisticsFragmentToDoBugsText"
+        style="@style/FragmentTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="250dp"
+        android:text="@string/bugs"/>
+
+    <TextView
+        android:id="@+id/StatisticsFragmentToDoBugsInput"
+        style="@style/FragmentTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="350dp"
+        android:layout_marginTop="250dp"
+        android:textSize="24sp"/>
+
+    <TextView
+        android:id="@+id/StatisticsFragmentInProgressText"
+        style="@style/FragmentTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="300dp"
+        android:text="@string/in_progress"
+        android:textColor="@color/yellow"/>
+
+    <TextView
+        android:id="@+id/StatisticsFragmentInProgressInput"
+        style="@style/FragmentTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="350dp"
+        android:layout_marginTop="300dp"
+        android:textSize="24sp"
+        android:textColor="@color/yellow"/>
+
+    <TextView
+        android:id="@+id/StatisticsFragmentInProgressEnhancementsText"
+        style="@style/FragmentTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="350dp"
+        android:text="@string/enhancements"/>
+
+    <TextView
+        android:id="@+id/StatisticsFragmentInProgressEnhancementsInput"
+        style="@style/FragmentTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="350dp"
+        android:layout_marginTop="350dp"
+        android:textSize="24sp"/>
+
+    <TextView
+        android:id="@+id/StatisticsFragmentInProgressBugsText"
+        style="@style/FragmentTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="400dp"
+        android:text="@string/bugs"/>
+
+    <TextView
+        android:id="@+id/StatisticsFragmentInProgressBugsInput"
+        style="@style/FragmentTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="350dp"
+        android:layout_marginTop="400dp"
+        android:textSize="24sp"/>
+
+    <TextView
+        android:id="@+id/StatisticsFragmentDoneText"
+        style="@style/FragmentTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="450dp"
+        android:text="@string/done"
+        android:textColor="@color/green"/>
+
+    <TextView
+        android:id="@+id/StatisticsFragmentDoneInput"
+        style="@style/FragmentTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="350dp"
+        android:layout_marginTop="450dp"
+        android:textSize="24sp"
+        android:textColor="@color/green"/>
+
+    <TextView
+        android:id="@+id/StatisticsFragmentDoneEnhancementsText"
+        style="@style/FragmentTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="500dp"
+        android:text="@string/enhancements"/>
+
+    <TextView
+        android:id="@+id/StatisticsFragmentDoneEnhancementsInput"
+        style="@style/FragmentTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="350dp"
+        android:layout_marginTop="500dp"
+        android:textSize="24sp"/>
+
+    <TextView
+        android:id="@+id/StatisticsFragmentDoneBugsText"
+        style="@style/FragmentTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="550dp"
+        android:text="@string/bugs"/>
+
+    <TextView
+        android:id="@+id/StatisticsFragmentDoneBugsInput"
+        style="@style/FragmentTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="350dp"
+        android:layout_marginTop="550dp"
+        android:textSize="24sp"/>
+
+</FrameLayout>

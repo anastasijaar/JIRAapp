@@ -94,8 +94,8 @@ public class LogInActivity extends AppCompatActivity {
                 sharedPreferences
                         .edit()
                         .putString("name", nameInput)
-                        .putString("surname", emailInput)
-                        .putString("bank", passwordInput)
+                        .putString("email", emailInput)
+                        .putString("password", passwordInput)
                         .putBoolean("isAdmin", isAdmin)
                         .apply();
 

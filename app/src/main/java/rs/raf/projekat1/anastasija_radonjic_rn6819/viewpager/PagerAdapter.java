@@ -6,6 +6,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
+import rs.raf.projekat1.anastasija_radonjic_rn6819.fragments.NewFragment;
+import rs.raf.projekat1.anastasija_radonjic_rn6819.fragments.ProfileFragment;
+import rs.raf.projekat1.anastasija_radonjic_rn6819.fragments.StatisticsFragment;
+import rs.raf.projekat1.anastasija_radonjic_rn6819.fragments.TicketsFragment;
+
 public class PagerAdapter extends FragmentPagerAdapter {
 
     private final int ITEM_COUNT = 4;
@@ -23,13 +28,12 @@ public class PagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         Fragment fragment;
         switch (position) {
-//            case FRAGMENT_1: fragment = new StanjeFragment(); break;
-//            case FRAGMENT_2: fragment = new UnosFragment(); break;
-//            case FRAGMENT_3: fragment = new ListeFragment(); break;
-//            default: fragment = new ProfilFragment(); break;
+            case FRAGMENT_1: fragment = new StatisticsFragment(); break;
+            case FRAGMENT_2: fragment = new NewFragment(); break;
+            case FRAGMENT_3: fragment = new TicketsFragment(); break;
+            default: fragment = new ProfileFragment(); break;
         }
-//        return fragment;
-        return null;
+        return fragment;
     }
 
     @Override
