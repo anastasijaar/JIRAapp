@@ -21,6 +21,7 @@
     <string name="ticket_description">Ticket description</string>
     <string name="add_new_ticket">Add new ticket</string>
     <string name="log_out">Log out</string>
+    <string name="search">Search...</string>
 
     <string-array name="spinnerTypeItems">
         <item>Bug</item>

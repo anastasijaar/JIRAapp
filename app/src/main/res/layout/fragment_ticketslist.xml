@@ -7,7 +7,7 @@
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/TicketsListFcvTabLayout"
         android:layout_width="0dp"
-        android:layout_height="56dp"
+        android:layout_height="80dp"
         android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

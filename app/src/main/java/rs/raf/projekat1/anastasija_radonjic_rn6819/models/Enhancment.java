@@ -3,13 +3,13 @@ package rs.raf.projekat1.anastasija_radonjic_rn6819.models;
 public class Enhancment {
 
     private String id;
+    private String type;
     private String priority;
     private int estimation;
     private String title;
     private String description;
 
-    public Enhancment(String priority, int estimation, String title, String description) {
-        this.priority = priority;
+    public Enhancment(String title, int estimation,  String description) {
         this.estimation = estimation;
         this.title = title;
         this.description = description;
@@ -53,5 +53,13 @@ public class Enhancment {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }
