@@ -14,7 +14,7 @@ import rs.raf.projekat1.anastasija_radonjic_rn6819.models.Enhancment;
 
 public class MainViewModel extends ViewModel {
 
-    public static int counter = 101;
+//    public static int counter = 101;
 
     private final MutableLiveData<List<Enhancment>> enhancments = new MutableLiveData<>();
     private final ArrayList<Enhancment> enhancmentsList = new ArrayList<>();
@@ -25,8 +25,10 @@ public class MainViewModel extends ViewModel {
     public MainViewModel() {
 
         Random random = new Random();
+        int numEnhancment = random.nextInt(25);
+        int numBug = random.nextInt(25);
 
-        for (int i = 0; i <= 100; i++) {
+        for (int i = 0; i <= numEnhancment; i++) {
             Enhancment enhancment = new Enhancment("Enhancment" + i,
                     random.nextInt(11)*1000,
                     "Ovo je opis nekog enhancmenta");
@@ -36,7 +38,7 @@ public class MainViewModel extends ViewModel {
         ArrayList<Enhancment> listToSubmitEnhancment = new ArrayList<>(enhancmentsList);
         enhancments.setValue(listToSubmitEnhancment);
 
-        for (int i = 0; i <= 100; i++) {
+        for (int i = 0; i <= numBug; i++) {
             Bug bug = new Bug("Bug" + i,
                     random.nextInt(11)*1000,
                     "Ovo je opis nekog buga");
@@ -56,6 +58,32 @@ public class MainViewModel extends ViewModel {
         return bugs;
     }
 
+    public int getEnhancmentSum() {
+        int sum = 0;
+        for (Enhancment e: enhancmentsList) sum ++;
+        return sum;
+    }
+
+    public int getBugSum() {
+        int sum = 0;
+        for (Bug b: bugsList) sum ++;
+        return sum;
+    }
+
+    public void addEnhancment(String title, int estimation, String description) {
+        Enhancment enhancment = new Enhancment(title, estimation, description);
+        enhancmentsList.add(enhancment);
+        ArrayList<Enhancment> listToSubmit = new ArrayList<>(enhancmentsList);
+        enhancments.setValue(listToSubmit);
+    }
+
+    public void addBug(String title, int estimation, String description) {
+        Bug bug = new Bug(title, estimation, description);
+        bugsList.add(bug);
+        ArrayList<Bug> listToSubmit = new ArrayList<>(bugsList);
+        bugs.setValue(listToSubmit);
+    }
+
     public void filterTickets(String filter){
 
         List<Enhancment> filteredList = enhancmentsList.stream().filter(enhancment -> enhancment.getTitle().toLowerCase().startsWith(filter.toLowerCase())).collect(Collectors.toList());
@@ -69,7 +97,7 @@ public class MainViewModel extends ViewModel {
         enhancments.setValue(listToSubmit);
     }
 
-    public void removeRashod(Bug bug) {
+    public void removeBug(Bug bug) {
         bugsList.remove(bug);
         ArrayList<Bug> listToSubmit = new ArrayList<>(bugsList);
         bugs.setValue(listToSubmit);

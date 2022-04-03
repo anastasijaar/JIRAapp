@@ -1,10 +1,12 @@
 package rs.raf.projekat1.anastasija_radonjic_rn6819.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import rs.raf.projekat1.anastasija_radonjic_rn6819.R;
+import rs.raf.projekat1.anastasija_radonjic_rn6819.activities.TicketsInfoActivity;
 import rs.raf.projekat1.anastasija_radonjic_rn6819.recycler.diff.EnhancmentDiffItemCallback;
 import rs.raf.projekat1.anastasija_radonjic_rn6819.recycler.diff.adapter.EnhancmentAdapter;
 import rs.raf.projekat1.anastasija_radonjic_rn6819.viewmodels.MainViewModel;
@@ -70,9 +73,9 @@ public class InProgressFragment extends Fragment {
     }
 
     private void initRecycler(View view) {
-        enhancmentAdapter = new EnhancmentAdapter(new EnhancmentDiffItemCallback()); //enhancment -> {
-////            Toast.makeText(view.getContext(), income.getId(), Toast.LENGTH_SHORT).show();
-//            Intent intent = new Intent(getActivity(), TicketsInfoActivity.class);
+        enhancmentAdapter = new EnhancmentAdapter(new EnhancmentDiffItemCallback(), enhancment -> {
+            Toast.makeText(view.getContext(), enhancment.getId(), Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(getActivity(), TicketsInfoActivity.class);
 //            intent.putExtra("type", enhancment.getType());
 //            intent.putExtra("priority", enhancment.getPriority());
 //            intent.putExtra("estimation", enhancment.getEstimation());
@@ -80,7 +83,7 @@ public class InProgressFragment extends Fragment {
 //            intent.putExtra("description", enhancment.getDescription());
 //            startActivity(intent);
 //            return null;
-//    });
+        });
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         recyclerView.setAdapter(enhancmentAdapter);
     }

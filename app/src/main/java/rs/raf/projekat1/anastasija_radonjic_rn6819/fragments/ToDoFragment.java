@@ -6,6 +6,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.annotation.NonNull;
@@ -76,9 +77,9 @@ public class ToDoFragment extends Fragment {
     }
 
     private void initRecycler(View view) {
-        enhancmentAdapter = new EnhancmentAdapter(new EnhancmentDiffItemCallback()); //enhancment -> {
-////            Toast.makeText(view.getContext(), income.getId(), Toast.LENGTH_SHORT).show();
-//            Intent intent = new Intent(getActivity(), TicketsInfoActivity.class);
+        enhancmentAdapter = new EnhancmentAdapter(new EnhancmentDiffItemCallback(), enhancment -> {
+            Toast.makeText(view.getContext(), enhancment.getId(), Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(getActivity(), TicketsInfoActivity.class);
 //            intent.putExtra("type", enhancment.getType());
 //            intent.putExtra("priority", enhancment.getPriority());
 //            intent.putExtra("estimation", enhancment.getEstimation());
@@ -86,7 +87,7 @@ public class ToDoFragment extends Fragment {
 //            intent.putExtra("description", enhancment.getDescription());
 //            startActivity(intent);
 //            return null;
-//    });
+        });
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         recyclerView.setAdapter(enhancmentAdapter);
     }
