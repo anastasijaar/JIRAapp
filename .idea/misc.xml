@@ -17,10 +17,14 @@
         <entry key="..\:/Users/Hp/AndroidStudioProjects/JIRAapp/app/src/main/res/layout/activity_log_in.xml" value="0.22" />
         <entry key="..\:/Users/Hp/AndroidStudioProjects/JIRAapp/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/Hp/AndroidStudioProjects/JIRAapp/app/src/main/res/layout/activity_splash.xml" value="0.209375" />
+        <entry key="..\:/Users/Hp/AndroidStudioProjects/JIRAapp/app/src/main/res/layout/fragment_done.xml" value="0.209375" />
+        <entry key="..\:/Users/Hp/AndroidStudioProjects/JIRAapp/app/src/main/res/layout/fragment_inprogress.xml" value="0.209375" />
         <entry key="..\:/Users/Hp/AndroidStudioProjects/JIRAapp/app/src/main/res/layout/fragment_new.xml" value="0.1" />
         <entry key="..\:/Users/Hp/AndroidStudioProjects/JIRAapp/app/src/main/res/layout/fragment_profile.xml" value="0.13953488372093023" />
         <entry key="..\:/Users/Hp/AndroidStudioProjects/JIRAapp/app/src/main/res/layout/fragment_statistics.xml" value="0.1" />
-        <entry key="..\:/Users/Hp/AndroidStudioProjects/JIRAapp/app/src/main/res/layout/fragment_tickets.xml" value="0.209375" />
+        <entry key="..\:/Users/Hp/AndroidStudioProjects/JIRAapp/app/src/main/res/layout/fragment_tickets.xml" value="0.18" />
+        <entry key="..\:/Users/Hp/AndroidStudioProjects/JIRAapp/app/src/main/res/layout/fragment_ticketslist.xml" value="0.209375" />
+        <entry key="..\:/Users/Hp/AndroidStudioProjects/JIRAapp/app/src/main/res/layout/fragment_todo.xml" value="0.209375" />
         <entry key="..\:/Users/Hp/AndroidStudioProjects/JIRAapp/app/src/main/res/menu/bottom_navigation.xml" value="0.209375" />
       </map>
     </option>

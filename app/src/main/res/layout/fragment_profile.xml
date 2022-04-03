@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
@@ -9,42 +10,47 @@
         android:id="@+id/ProfileFragmentImageButton"
         android:layout_width="200dp"
         android:layout_height="150dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="80dp"
         android:background="@color/white"
-        android:src="@drawable/ic_profile" />
+        android:src="@drawable/ic_profile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/ProfileFragmentNameInput"
         style="@style/FragmentTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
-        android:layout_marginTop="250dp"
         android:gravity="center"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ProfileFragmentImageButton" />
 
     <TextView
         android:id="@+id/ProfileFragmentEmailInput"
         style="@style/FragmentTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="140dp"
-        android:layout_marginTop="300dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ProfileFragmentNameInput"
         android:gravity="center"
         android:textSize="15sp" />
 
     <Button
         android:id="@+id/ProfileFragmentLogOutButton"
+        style="?attr/materialButtonOutlinedStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="30dp"
-        android:layout_marginTop="640dp"
         android:text="@string/log_out"
-        style="?attr/materialButtonOutlinedStyle"
+        android:textAllCaps="false"
         android:textColor="@color/orange"
-        android:textAllCaps="false"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"/>
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

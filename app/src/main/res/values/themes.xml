@@ -27,4 +27,11 @@
         <item name="android:textSize">24sp</item>
     </style>
 
+<!--    <style name="TabStyle" parent="Theme.JIRAapp">-->
+<!--        <selector xmlns:android="http://schemas.android.com/apk/res/android">-->
+<!--            <item android:drawable="@color/selectedColor" android:state_selected="true"/>-->
+<!--            <item android:drawable="@color/unselectedColor"/>-->
+<!--        </selector>-->
+<!--    </style>-->
+
 </resources>
