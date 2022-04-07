@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">JIRAapp</string>
+    <string name="app_name" translatable="false">JIRAapp</string>
     <string name="jira_app">Jira system for Raf students</string>
     <string name="username">Username</string>
     <string name="email">Email</string>

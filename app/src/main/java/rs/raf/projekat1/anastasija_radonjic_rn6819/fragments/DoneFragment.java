@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import rs.raf.projekat1.anastasija_radonjic_rn6819.R;
 import rs.raf.projekat1.anastasija_radonjic_rn6819.activities.TicketsInfoActivity;
 import rs.raf.projekat1.anastasija_radonjic_rn6819.recycler.diff.EnhancmentDiffItemCallback;
+import rs.raf.projekat1.anastasija_radonjic_rn6819.recycler.diff.adapter.DoneAdapter;
 import rs.raf.projekat1.anastasija_radonjic_rn6819.recycler.diff.adapter.EnhancmentAdapter;
 import rs.raf.projekat1.anastasija_radonjic_rn6819.viewmodels.MainViewModel;
 
@@ -28,7 +29,7 @@ public class DoneFragment extends Fragment {
     private RecyclerView recyclerView;
 
     private MainViewModel mainViewModel;
-    private EnhancmentAdapter enhancmentAdapter;
+    private DoneAdapter doneAdapter;
 
     public DoneFragment() {
         super(R.layout.fragment_done);
@@ -73,7 +74,7 @@ public class DoneFragment extends Fragment {
     }
 
     private void initRecycler(View view) {
-        enhancmentAdapter = new EnhancmentAdapter(new EnhancmentDiffItemCallback(), enhancment -> {
+        doneAdapter = new DoneAdapter(new EnhancmentDiffItemCallback(), enhancment -> {
 //            if(enhancment != null && enhancment.getId() != null){
 //                Toast.makeText(view.getContext(), enhancment.getId(), Toast.LENGTH_SHORT).show();
 //            }
@@ -85,19 +86,15 @@ public class DoneFragment extends Fragment {
             intent.putExtra("title", enhancment.getTitle());
             intent.putExtra("description", enhancment.getDescription());
             startActivity(intent);
-        }, moveTicket ->{
-
-        }, deleteTicket ->{
-            mainViewModel.deleteTicket(deleteTicket);
         });
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
-        recyclerView.setAdapter(enhancmentAdapter);
+        recyclerView.setAdapter(doneAdapter);
     }
 
 
     private void initObservers() {
         mainViewModel.getInDone().observe(requireActivity(), enhancments -> {
-            enhancmentAdapter.submitList(enhancments);
+            doneAdapter.submitList(enhancments);
         });
     }
 }

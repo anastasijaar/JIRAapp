@@ -74,6 +74,7 @@ public class StatisticsFragment extends Fragment {
         doneBugsText = (TextView) view.findViewById(R.id.StatisticsFragmentDoneBugsText);
         doneBugsInputText = (TextView) view.findViewById(R.id.StatisticsFragmentDoneBugsInput);
 
+        //to-do lista
         mainViewModel.getEnhancment().observe(getViewLifecycleOwner(), v->{
             toDoEnhancementsInputText.setText(String.valueOf(mainViewModel.getEnhancmentSum()));
         });
@@ -84,6 +85,32 @@ public class StatisticsFragment extends Fragment {
 
         mainViewModel.getEnhancment().observe(getViewLifecycleOwner(), v->{
             toDoInputText.setText(String.valueOf(mainViewModel.getBugSum()+mainViewModel.getEnhancmentSum()));
+        });
+
+        //inprogress lista
+        mainViewModel.getInProgress().observe(getViewLifecycleOwner(), v->{
+            inProgressEnhancementsInputText.setText(String.valueOf(mainViewModel.getInProgressEnhancmentSum()));
+        });
+
+        mainViewModel.getInProgress().observe(getViewLifecycleOwner(), v->{
+            inProgressBugsInputText.setText(String.valueOf(mainViewModel.getInProgressBugSum()));
+        });
+
+        mainViewModel.getInProgress().observe(getViewLifecycleOwner(), v->{
+            inProgressInputText.setText(String.valueOf(mainViewModel.getInProgressBugSum()+mainViewModel.getInProgressEnhancmentSum()));
+        });
+
+        //done lista
+        mainViewModel.getInDone().observe(getViewLifecycleOwner(), v->{
+            doneEnhancementsInputText.setText(String.valueOf(mainViewModel.getDoneEnhancmentSum()));
+        });
+
+        mainViewModel.getInDone().observe(getViewLifecycleOwner(), v->{
+            doneBugsInputText.setText(String.valueOf(mainViewModel.getDoneBugSum()));
+        });
+
+        mainViewModel.getInDone().observe(getViewLifecycleOwner(), v->{
+            doneInputText.setText(String.valueOf(mainViewModel.getDoneBugSum()+mainViewModel.getDoneEnhancmentSum()));
         });
     }
 

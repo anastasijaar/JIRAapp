@@ -106,11 +106,12 @@ public class TicketsEditInfoActivity extends AppCompatActivity {
         ticketEditTitleInputText.setText(title);
 
         saveBtn.setOnClickListener(v->{
-            intent.putExtra("type", spinnerEditType.getSelectedItemPosition());
-            intent.putExtra("priority", spinnerEditPriority.getSelectedItemPosition());
-            intent.putExtra("estimation", String.valueOf(estEditInputText.getText()));
-            intent.putExtra("title", ticketEditTitleInputText.getText());
-            intent.putExtra("description", ticketEditDescInputText.getText().toString());
+            Intent intent1 = new Intent(TicketsEditInfoActivity.this, TicketsInfoActivity.class);
+            intent1.putExtra("type", spinnerEditType.getSelectedItemPosition());
+            intent1.putExtra("priority", spinnerEditPriority.getSelectedItemPosition());
+            intent1.putExtra("estimation", String.valueOf(estEditInputText.getText()));
+            intent1.putExtra("title", ticketEditTitleInputText.getText());
+            intent1.putExtra("description", ticketEditDescInputText.getText().toString());
             Toast.makeText(this, "You have successfully saved the ticket", Toast.LENGTH_SHORT).show();
             finish();
         });

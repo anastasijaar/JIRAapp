@@ -23,6 +23,7 @@
         android:layout_marginStart="20dp"
         android:entries="@array/spinnerTypeItems"
         android:theme="@style/Spinner"
+        android:background="@drawable/spinner_bg"
         android:spinnerMode="dropdown"
         android:padding="0dip"/>
 

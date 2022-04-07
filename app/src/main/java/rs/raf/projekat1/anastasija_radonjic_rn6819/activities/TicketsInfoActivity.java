@@ -66,9 +66,14 @@ public class TicketsInfoActivity extends AppCompatActivity {
     private void initListeners() {
 
         Intent intent = getIntent();
-        imageView.setImageDrawable(Drawable.createFromPath("drawable"));
         String type = intent.getStringExtra("type");
         typeInputText.setText(type);
+        if(type.startsWith("En")) {
+            imageView.setImageDrawable(getDrawable(R.drawable.ic_enhancment));
+        }
+        else if(type.startsWith("Bu")){
+            imageView.setImageDrawable(getDrawable(R.drawable.ic_bug));
+        }
         String priority = intent.getStringExtra("priority");
         priorityInputText.setText(priority);
         String estimation = intent.getStringExtra("estimation");

@@ -7,6 +7,7 @@
         <entry key="..\:/Users/Hp/AndroidStudioProjects/JIRAapp/app/src/main/res/drawable/ic_arrowright.xml" value="0.1565" />
         <entry key="..\:/Users/Hp/AndroidStudioProjects/JIRAapp/app/src/main/res/drawable/ic_baseline_add_box_24.xml" value="0.101" />
         <entry key="..\:/Users/Hp/AndroidStudioProjects/JIRAapp/app/src/main/res/drawable/ic_baseline_file_copy_24.xml" value="0.1035" />
+        <entry key="..\:/Users/Hp/AndroidStudioProjects/JIRAapp/app/src/main/res/drawable/ic_bug.xml" value="0.115" />
         <entry key="..\:/Users/Hp/AndroidStudioProjects/JIRAapp/app/src/main/res/drawable/ic_delete.xml" value="0.1565" />
         <entry key="..\:/Users/Hp/AndroidStudioProjects/JIRAapp/app/src/main/res/drawable/ic_enhancment.xml" value="0.1565" />
         <entry key="..\:/Users/Hp/AndroidStudioProjects/JIRAapp/app/src/main/res/drawable/ic_file.xml" value="0.166" />
@@ -14,15 +15,18 @@
         <entry key="..\:/Users/Hp/AndroidStudioProjects/JIRAapp/app/src/main/res/drawable/ic_menu_1.xml" value="0.101" />
         <entry key="..\:/Users/Hp/AndroidStudioProjects/JIRAapp/app/src/main/res/drawable/ic_menu_4.xml" value="0.127" />
         <entry key="..\:/Users/Hp/AndroidStudioProjects/JIRAapp/app/src/main/res/drawable/ic_profile.xml" value="0.127" />
+        <entry key="..\:/Users/Hp/AndroidStudioProjects/JIRAapp/app/src/main/res/drawable/ic_splash_icon.xml" value="0.1825" />
         <entry key="..\:/Users/Hp/AndroidStudioProjects/JIRAapp/app/src/main/res/drawable/ic_splashfile.xml" value="0.166" />
         <entry key="..\:/Users/Hp/AndroidStudioProjects/JIRAapp/app/src/main/res/drawable/ic_sticky_note.xml" value="0.1035" />
         <entry key="..\:/Users/Hp/AndroidStudioProjects/JIRAapp/app/src/main/res/drawable/logo.xml" value="0.144" />
+        <entry key="..\:/Users/Hp/AndroidStudioProjects/JIRAapp/app/src/main/res/drawable/spinner_bg.xml" value="0.115" />
         <entry key="..\:/Users/Hp/AndroidStudioProjects/JIRAapp/app/src/main/res/layout/activity_log_in.xml" value="0.22" />
         <entry key="..\:/Users/Hp/AndroidStudioProjects/JIRAapp/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/Hp/AndroidStudioProjects/JIRAapp/app/src/main/res/layout/activity_splash.xml" value="0.209375" />
         <entry key="..\:/Users/Hp/AndroidStudioProjects/JIRAapp/app/src/main/res/layout/activity_tickets_edit_info.xml" value="0.11320754716981132" />
-        <entry key="..\:/Users/Hp/AndroidStudioProjects/JIRAapp/app/src/main/res/layout/activity_tickets_info.xml" value="0.1" />
+        <entry key="..\:/Users/Hp/AndroidStudioProjects/JIRAapp/app/src/main/res/layout/activity_tickets_info.xml" value="0.22" />
         <entry key="..\:/Users/Hp/AndroidStudioProjects/JIRAapp/app/src/main/res/layout/bug_list_item.xml" value="0.209375" />
+        <entry key="..\:/Users/Hp/AndroidStudioProjects/JIRAapp/app/src/main/res/layout/done_list_item.xml" value="0.209375" />
         <entry key="..\:/Users/Hp/AndroidStudioProjects/JIRAapp/app/src/main/res/layout/enhancment_list_item.xml" value="0.209375" />
         <entry key="..\:/Users/Hp/AndroidStudioProjects/JIRAapp/app/src/main/res/layout/fragment_done.xml" value="0.209375" />
         <entry key="..\:/Users/Hp/AndroidStudioProjects/JIRAapp/app/src/main/res/layout/fragment_inprogress.xml" value="0.209375" />
@@ -32,6 +36,7 @@
         <entry key="..\:/Users/Hp/AndroidStudioProjects/JIRAapp/app/src/main/res/layout/fragment_tickets.xml" value="0.18" />
         <entry key="..\:/Users/Hp/AndroidStudioProjects/JIRAapp/app/src/main/res/layout/fragment_ticketslist.xml" value="0.209375" />
         <entry key="..\:/Users/Hp/AndroidStudioProjects/JIRAapp/app/src/main/res/layout/fragment_todo.xml" value="0.209375" />
+        <entry key="..\:/Users/Hp/AndroidStudioProjects/JIRAapp/app/src/main/res/layout/inprogress_list_item.xml" value="0.209375" />
         <entry key="..\:/Users/Hp/AndroidStudioProjects/JIRAapp/app/src/main/res/menu/bottom_navigation.xml" value="0.209375" />
       </map>
     </option>

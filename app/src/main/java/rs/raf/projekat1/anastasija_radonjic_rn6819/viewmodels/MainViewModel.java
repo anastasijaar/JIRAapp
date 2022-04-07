@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
 
-import rs.raf.projekat1.anastasija_radonjic_rn6819.models.Bug;
 import rs.raf.projekat1.anastasija_radonjic_rn6819.models.Ticket;
 
 public class MainViewModel extends ViewModel {
@@ -37,7 +36,7 @@ public class MainViewModel extends ViewModel {
         for (int i = 0; i <= numEnhancment; i++) {
             Ticket ticket = new Ticket("Enhancment" + i,
                     random.nextInt(11)*1000,
-                    "Ovo je opis nekog enhancmenta");
+                    "This is a description of an enhancement");
             ticket.setType("Enhancment");
             ticket.setPriority("High");
             enhancmentsList.add(ticket);
@@ -49,7 +48,7 @@ public class MainViewModel extends ViewModel {
         for (int i = 0; i <= numBug; i++) {
             Ticket bug = new Ticket("Bug" + i,
                     random.nextInt(11)*1000,
-                    "Ovo je opis nekog buga");
+                    "This is a description of a bug");
             bug.setType("Bug");
             bug.setPriority("High");
             enhancmentsList.add(bug);
@@ -95,6 +94,47 @@ public class MainViewModel extends ViewModel {
         }
         return sum;
     }
+
+    public int getInProgressEnhancmentSum() {
+        int sum = 0;
+        for (Ticket e: inProgressList) {
+            if(e.getType().equals("Enhancment")){
+                sum ++;
+            }
+        }
+        return sum;
+    }
+
+    public int getInProgressBugSum() {
+        int sum = 0;
+        for (Ticket b: inProgressList) {
+            if(b.getType().equals("Bug")){
+                sum ++;
+            }
+        }
+        return sum;
+    }
+
+    public int getDoneEnhancmentSum() {
+        int sum = 0;
+        for (Ticket e: inDoneList) {
+            if(e.getType().equals("Enhancment")){
+                sum ++;
+            }
+        }
+        return sum;
+    }
+
+    public int getDoneBugSum() {
+        int sum = 0;
+        for (Ticket b: inDoneList) {
+            if(b.getType().equals("Bug")){
+                sum ++;
+            }
+        }
+        return sum;
+    }
+
 
     public void addTicket(String type, String priority, int estimation, String title, String description) {
         Ticket ticket = new Ticket(type, priority, estimation, title, description);
@@ -153,6 +193,18 @@ public class MainViewModel extends ViewModel {
         inDoneList.add(ticket);
         ArrayList<Ticket> listToSubmitTicketInDone = new ArrayList<>(inDoneList);
         inDone.setValue(listToSubmitTicketInDone);
+    }
+
+    public void moveFromInProgress2InToDo(Ticket ticket){
+        //Brisem element iz liste InProgress
+        inProgressList.remove(ticket);
+        ArrayList<Ticket> listToSubmitTicket = new ArrayList<>(inProgressList);
+        inProgress.setValue(listToSubmitTicket);
+
+        //Taj element dodajem u listu To Do
+        enhancmentsList.add(ticket);
+        ArrayList<Ticket> listToSubmitTicketInDone = new ArrayList<>(enhancmentsList);
+        enhancments.setValue(listToSubmitTicketInDone);
     }
 
     public void deleteTicket(Ticket ticket){

@@ -21,6 +21,7 @@ import rs.raf.projekat1.anastasija_radonjic_rn6819.R;
 import rs.raf.projekat1.anastasija_radonjic_rn6819.activities.TicketsInfoActivity;
 import rs.raf.projekat1.anastasija_radonjic_rn6819.recycler.diff.EnhancmentDiffItemCallback;
 import rs.raf.projekat1.anastasija_radonjic_rn6819.recycler.diff.adapter.EnhancmentAdapter;
+import rs.raf.projekat1.anastasija_radonjic_rn6819.recycler.diff.adapter.InProgressAdapter;
 import rs.raf.projekat1.anastasija_radonjic_rn6819.viewmodels.MainViewModel;
 
 public class InProgressFragment extends Fragment {
@@ -30,7 +31,7 @@ public class InProgressFragment extends Fragment {
     private RecyclerView recyclerView;
 
     private MainViewModel mainViewModel;
-    private EnhancmentAdapter enhancmentAdapter;
+    private InProgressAdapter inProgressAdapter;
 
     public InProgressFragment() {
         super(R.layout.fragment_inprogress);
@@ -87,7 +88,7 @@ public class InProgressFragment extends Fragment {
     }
 
     private void initRecycler(View view) {
-        enhancmentAdapter = new EnhancmentAdapter(new EnhancmentDiffItemCallback(), enhancment -> {
+        inProgressAdapter = new InProgressAdapter(new EnhancmentDiffItemCallback(), enhancment -> {
 //            if(enhancment != null && enhancment.getId() != null){
 //                Toast.makeText(view.getContext(), enhancment.getId(), Toast.LENGTH_SHORT).show();
 //            }
@@ -99,19 +100,19 @@ public class InProgressFragment extends Fragment {
             intent.putExtra("title", enhancment.getTitle());
             intent.putExtra("description", enhancment.getDescription());
             startActivity(intent);
-        }, moveTicket ->{
-            mainViewModel.moveFromInProgress2InDone(moveTicket);
-        }, deleteTicket ->{
-            mainViewModel.deleteTicket(deleteTicket);
+        }, moveRightTicket ->{
+            mainViewModel.moveFromInProgress2InDone(moveRightTicket);
+        }, moveLeftTicket ->{
+            mainViewModel.moveFromInProgress2InToDo(moveLeftTicket);
         });
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
-        recyclerView.setAdapter(enhancmentAdapter);
+        recyclerView.setAdapter(inProgressAdapter);
     }
 
 
     private void initObservers() {
         mainViewModel.getInProgress().observe(requireActivity(), enhancments -> {
-            enhancmentAdapter.submitList(enhancments);
+            inProgressAdapter.submitList(enhancments);
         });
     }
 }
