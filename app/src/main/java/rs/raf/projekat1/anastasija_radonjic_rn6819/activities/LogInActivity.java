@@ -82,6 +82,9 @@ public class LogInActivity extends AppCompatActivity {
                 if(nameInput.startsWith("admin")){
                     isAdmin  =true;
                 }
+                else{
+                    isAdmin = false;
+                }
 
                 Intent intent = new Intent(this, MainActivity.class);
                 intent.putExtra("name", nameInput)

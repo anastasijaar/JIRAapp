@@ -1,6 +1,8 @@
 package rs.raf.projekat1.anastasija_radonjic_rn6819.fragments;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -38,7 +40,19 @@ public class InProgressFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mainViewModel = new ViewModelProvider(requireActivity()).get(MainViewModel.class);
+//        SharedPreferences preferences = this.getActivity().getSharedPreferences(getActivity().getPackageName(), Context.MODE_PRIVATE);
+//        preferences.edit().clear().apply();
+//        preferences.
+//                edit().
+//                putBoolean("isInProgress", true).
+//                apply();
         init(view);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
     }
 
     private void init(View view) {
@@ -62,7 +76,7 @@ public class InProgressFragment extends Fragment {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                mainViewModel.filterTickets(editable.toString());
+                mainViewModel.filterTicketsInProgress(editable.toString());
             }
         });
     }
@@ -74,15 +88,21 @@ public class InProgressFragment extends Fragment {
 
     private void initRecycler(View view) {
         enhancmentAdapter = new EnhancmentAdapter(new EnhancmentDiffItemCallback(), enhancment -> {
-            Toast.makeText(view.getContext(), enhancment.getId(), Toast.LENGTH_SHORT).show();
+//            if(enhancment != null && enhancment.getId() != null){
+//                Toast.makeText(view.getContext(), enhancment.getId(), Toast.LENGTH_SHORT).show();
+//            }
             Intent intent = new Intent(getActivity(), TicketsInfoActivity.class);
-//            intent.putExtra("type", enhancment.getType());
-//            intent.putExtra("priority", enhancment.getPriority());
-//            intent.putExtra("estimation", enhancment.getEstimation());
-//            intent.putExtra("title", enhancment.getTitle());
-//            intent.putExtra("description", enhancment.getDescription());
-//            startActivity(intent);
-//            return null;
+            intent.putExtra("drawable", String.valueOf(enhancment.getImage()));
+            intent.putExtra("type", enhancment.getType());
+            intent.putExtra("priority", enhancment.getPriority());
+            intent.putExtra("estimation", String.valueOf(enhancment.getEstimation()));
+            intent.putExtra("title", enhancment.getTitle());
+            intent.putExtra("description", enhancment.getDescription());
+            startActivity(intent);
+        }, moveTicket ->{
+            mainViewModel.moveFromInProgress2InDone(moveTicket);
+        }, deleteTicket ->{
+            mainViewModel.deleteTicket(deleteTicket);
         });
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         recyclerView.setAdapter(enhancmentAdapter);
@@ -90,7 +110,7 @@ public class InProgressFragment extends Fragment {
 
 
     private void initObservers() {
-        mainViewModel.getEnhancment().observe(requireActivity(), enhancments -> {
+        mainViewModel.getInProgress().observe(requireActivity(), enhancments -> {
             enhancmentAdapter.submitList(enhancments);
         });
     }

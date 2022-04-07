@@ -22,17 +22,27 @@
     <string name="add_new_ticket">Add new ticket</string>
     <string name="log_out">Log out</string>
     <string name="search">Search...</string>
+    <string name="ticket_type">Ticket type</string>
+    <string name="priority">Priority</string>
+    <string name="estimation">Estimation</string>
+    <string name="logged_time">Logged time</string>
+    <string name="edit">Edit</string>
+    <string name="ticket_desc">Ticket desc.</string>
+    <string name="edit_ticket">Edit ticket</string>
+    <string name="save">Save</string>
 
     <string-array name="spinnerTypeItems">
-        <item>Bug</item>
+        <item>Ticket type</item>
         <item>Enhancement</item>
+        <item>Bug</item>
     </string-array>
 
     <string-array name="spinnerPriorityItems">
+        <item>Priority</item>
         <item>Highest</item>
         <item>High</item>
         <item>Medium</item>
-        <item>Low </item>
+        <item>Low</item>
         <item>Lowest</item>
     </string-array>
 </resources>

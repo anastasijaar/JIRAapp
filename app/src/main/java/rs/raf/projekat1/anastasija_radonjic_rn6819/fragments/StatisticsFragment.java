@@ -7,7 +7,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+
 import rs.raf.projekat1.anastasija_radonjic_rn6819.R;
+import rs.raf.projekat1.anastasija_radonjic_rn6819.viewmodels.MainViewModel;
 
 public class StatisticsFragment extends Fragment {
 
@@ -32,6 +35,8 @@ public class StatisticsFragment extends Fragment {
     private TextView doneBugsText;
     private TextView doneBugsInputText;
 
+    private MainViewModel mainViewModel;
+
     public StatisticsFragment() {
         super(R.layout.fragment_statistics);
     }
@@ -39,6 +44,7 @@ public class StatisticsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        mainViewModel = new ViewModelProvider(requireActivity()).get(MainViewModel.class);
         init(view);
     }
 
@@ -67,8 +73,21 @@ public class StatisticsFragment extends Fragment {
         doneEnhancementsInputText = (TextView) view.findViewById(R.id.StatisticsFragmentDoneEnhancementsInput);
         doneBugsText = (TextView) view.findViewById(R.id.StatisticsFragmentDoneBugsText);
         doneBugsInputText = (TextView) view.findViewById(R.id.StatisticsFragmentDoneBugsInput);
+
+        mainViewModel.getEnhancment().observe(getViewLifecycleOwner(), v->{
+            toDoEnhancementsInputText.setText(String.valueOf(mainViewModel.getEnhancmentSum()));
+        });
+
+        mainViewModel.getEnhancment().observe(getViewLifecycleOwner(), v->{
+            toDoBugsInputText.setText(String.valueOf(mainViewModel.getBugSum()));
+        });
+
+        mainViewModel.getEnhancment().observe(getViewLifecycleOwner(), v->{
+            toDoInputText.setText(String.valueOf(mainViewModel.getBugSum()+mainViewModel.getEnhancmentSum()));
+        });
     }
 
     private void initListeners(View view) {
     }
+
 }

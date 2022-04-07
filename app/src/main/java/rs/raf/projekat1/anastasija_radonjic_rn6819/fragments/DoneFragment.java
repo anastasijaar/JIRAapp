@@ -62,7 +62,7 @@ public class DoneFragment extends Fragment {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                mainViewModel.filterTickets(editable.toString());
+                mainViewModel.filterTicketsInDone(editable.toString());
             }
         });
     }
@@ -74,15 +74,21 @@ public class DoneFragment extends Fragment {
 
     private void initRecycler(View view) {
         enhancmentAdapter = new EnhancmentAdapter(new EnhancmentDiffItemCallback(), enhancment -> {
-            Toast.makeText(view.getContext(), enhancment.getId(), Toast.LENGTH_SHORT).show();
+//            if(enhancment != null && enhancment.getId() != null){
+//                Toast.makeText(view.getContext(), enhancment.getId(), Toast.LENGTH_SHORT).show();
+//            }
             Intent intent = new Intent(getActivity(), TicketsInfoActivity.class);
-//            intent.putExtra("type", enhancment.getType());
-//            intent.putExtra("priority", enhancment.getPriority());
-//            intent.putExtra("estimation", enhancment.getEstimation());
-//            intent.putExtra("title", enhancment.getTitle());
-//            intent.putExtra("description", enhancment.getDescription());
-//            startActivity(intent);
-//            return null;
+            intent.putExtra("drawable", String.valueOf(enhancment.getImage()));
+            intent.putExtra("type", enhancment.getType());
+            intent.putExtra("priority", enhancment.getPriority());
+            intent.putExtra("estimation", String.valueOf(enhancment.getEstimation()));
+            intent.putExtra("title", enhancment.getTitle());
+            intent.putExtra("description", enhancment.getDescription());
+            startActivity(intent);
+        }, moveTicket ->{
+
+        }, deleteTicket ->{
+            mainViewModel.deleteTicket(deleteTicket);
         });
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         recyclerView.setAdapter(enhancmentAdapter);
@@ -90,7 +96,7 @@ public class DoneFragment extends Fragment {
 
 
     private void initObservers() {
-        mainViewModel.getEnhancment().observe(requireActivity(), enhancments -> {
+        mainViewModel.getInDone().observe(requireActivity(), enhancments -> {
             enhancmentAdapter.submitList(enhancments);
         });
     }

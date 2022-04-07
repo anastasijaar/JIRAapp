@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JIRAapp">
         <activity
+            android:name=".activities.TicketsEditInfoActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.TicketsInfoActivity"
             android:exported="false" />
         <activity android:name=".activities.LogInActivity" />

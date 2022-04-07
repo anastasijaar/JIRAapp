@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/TicketsEditInfoActivityText"
+        style="@style/FragmentTextStyle"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:textAlignment="center"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="100dp"
+        android:text="@string/edit_ticket"/>
+
+    <Spinner
+        android:id="@+id/TicketsEditInfoActivityTypeSpinner"
+        android:layout_width="140dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="180dp"
+        android:layout_marginStart="20dp"
+        android:entries="@array/spinnerTypeItems"
+        android:theme="@style/Spinner"
+        android:spinnerMode="dropdown"
+        android:padding="0dip"/>
+
+    <Spinner
+        android:id="@+id/TicketsEditInfoActivityPrioritySpinner"
+        android:layout_width="140dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="180dp"
+        android:layout_marginStart="180dp"
+        android:entries="@array/spinnerPriorityItems"
+        android:theme="@style/Spinner"
+        android:spinnerMode="dropdown"
+        android:padding="0dip"/>
+
+    <EditText
+        android:id="@+id/TicketsEditInfoActivityEstInput"
+        style="@style/FragmentTextStyle"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="320dp"
+        android:layout_marginTop="180dp"
+        android:textSize="24sp"
+        android:textColorHint="@color/gray"
+        android:inputType="number"
+        android:hint="@string/est"/>
+
+    <EditText
+        android:id="@+id/TicketsEditInfoActivityTicketTitleInput"
+        style="@style/FragmentTextStyle"
+        android:layout_width="370dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="250dp"
+        android:textSize="24sp"
+        android:textColorHint="@color/gray"
+        android:hint="@string/ticket_title"/>
+
+    <EditText
+        android:id="@+id/TicketsEditInfoActivityTicketDescInput"
+        style="@style/FragmentTextStyle"
+        android:layout_width="370dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="340dp"
+        android:inputType="textMultiLine"
+        android:lines="5"
+        android:maxLines="5"
+        android:minLines="3"
+        android:scrollbars="vertical"
+        android:textSize="24sp"
+        android:textColorHint="@color/gray"
+        android:hint="@string/ticket_description"/>
+
+    <Button
+        android:id="@+id/TicketsEditInfoActivityButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="640dp"
+        android:text="@string/save"
+        style="?attr/materialButtonOutlinedStyle"
+        android:textColor="@color/orange"
+        android:textAllCaps="false"/>
+
+</FrameLayout>

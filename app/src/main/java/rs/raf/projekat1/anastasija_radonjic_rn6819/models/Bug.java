@@ -1,5 +1,7 @@
 package rs.raf.projekat1.anastasija_radonjic_rn6819.models;
 
+import java.util.UUID;
+
 public class Bug {
 
     private String id;
@@ -10,6 +12,7 @@ public class Bug {
     private String description;
 
     public Bug(String title, int estimation, String description) {
+        this.id = UUID.randomUUID().toString();
         this.estimation = estimation;
         this.title = title;
         this.description = description;

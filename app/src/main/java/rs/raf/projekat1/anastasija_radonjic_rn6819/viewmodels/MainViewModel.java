@@ -10,17 +10,23 @@ import java.util.Random;
 import java.util.stream.Collectors;
 
 import rs.raf.projekat1.anastasija_radonjic_rn6819.models.Bug;
-import rs.raf.projekat1.anastasija_radonjic_rn6819.models.Enhancment;
+import rs.raf.projekat1.anastasija_radonjic_rn6819.models.Ticket;
 
 public class MainViewModel extends ViewModel {
 
 //    public static int counter = 101;
 
-    private final MutableLiveData<List<Enhancment>> enhancments = new MutableLiveData<>();
-    private final ArrayList<Enhancment> enhancmentsList = new ArrayList<>();
+    private final MutableLiveData<List<Ticket>> enhancments = new MutableLiveData<>();
+    private final ArrayList<Ticket> enhancmentsList = new ArrayList<>();
 
-    private final MutableLiveData<List<Bug>> bugs = new MutableLiveData<>();
-    private final ArrayList<Bug> bugsList = new ArrayList<>();
+    private final MutableLiveData<List<Ticket>> inProgress = new MutableLiveData<>();
+    private final ArrayList<Ticket> inProgressList = new ArrayList<>();
+
+    private final MutableLiveData<List<Ticket>> inDone = new MutableLiveData<>();
+    private final ArrayList<Ticket> inDoneList = new ArrayList<>();
+
+//    private final MutableLiveData<List<Bug>> bugs = new MutableLiveData<>();
+//    private final ArrayList<Bug> bugsList = new ArrayList<>();
 
     public MainViewModel() {
 
@@ -29,79 +35,140 @@ public class MainViewModel extends ViewModel {
         int numBug = random.nextInt(25);
 
         for (int i = 0; i <= numEnhancment; i++) {
-            Enhancment enhancment = new Enhancment("Enhancment" + i,
+            Ticket ticket = new Ticket("Enhancment" + i,
                     random.nextInt(11)*1000,
                     "Ovo je opis nekog enhancmenta");
-            enhancmentsList.add(enhancment);
+            ticket.setType("Enhancment");
+            ticket.setPriority("High");
+            enhancmentsList.add(ticket);
         }
 
-        ArrayList<Enhancment> listToSubmitEnhancment = new ArrayList<>(enhancmentsList);
-        enhancments.setValue(listToSubmitEnhancment);
+//        ArrayList<Ticket> listToSubmitTicket = new ArrayList<>(enhancmentsList);
+//        enhancments.setValue(listToSubmitTicket);
 
         for (int i = 0; i <= numBug; i++) {
-            Bug bug = new Bug("Bug" + i,
+            Ticket bug = new Ticket("Bug" + i,
                     random.nextInt(11)*1000,
                     "Ovo je opis nekog buga");
-            bugsList.add(bug);
+            bug.setType("Bug");
+            bug.setPriority("High");
+            enhancmentsList.add(bug);
         }
 
-        ArrayList<Bug> listToSubmitBug = new ArrayList<>(bugsList);
-        bugs.setValue(listToSubmitBug);
+//        ArrayList<Bug> listToSubmitBug = new ArrayList<>(bugsList);
+//        bugs.setValue(listToSubmitBug);
+
+        ArrayList<Ticket> listToSubmitTicket = new ArrayList<>(enhancmentsList);
+        enhancments.setValue(listToSubmitTicket);
+
 
     }
 
-    public LiveData<List<Enhancment>> getEnhancment() {
+    public LiveData<List<Ticket>> getEnhancment() {
         return enhancments;
     }
 
-    public LiveData<List<Bug>> getBug() {
-        return bugs;
-    }
+    public  LiveData<List<Ticket>> getInProgress() { return inProgress;}
+
+    public LiveData<List<Ticket>> getInDone(){ return inDone;}
+
+//    public LiveData<List<Bug>> getBug() {
+//        return bugs;
+//    }
 
     public int getEnhancmentSum() {
         int sum = 0;
-        for (Enhancment e: enhancmentsList) sum ++;
+        for (Ticket e: enhancmentsList) {
+            if(e.getType().equals("Enhancment")){
+                sum ++;
+            }
+        }
         return sum;
     }
 
     public int getBugSum() {
         int sum = 0;
-        for (Bug b: bugsList) sum ++;
+        for (Ticket b: enhancmentsList) {
+            if(b.getType().equals("Bug")){
+                sum ++;
+            }
+        }
         return sum;
     }
 
-    public void addEnhancment(String title, int estimation, String description) {
-        Enhancment enhancment = new Enhancment(title, estimation, description);
-        enhancmentsList.add(enhancment);
-        ArrayList<Enhancment> listToSubmit = new ArrayList<>(enhancmentsList);
+    public void addTicket(String type, String priority, int estimation, String title, String description) {
+        Ticket ticket = new Ticket(type, priority, estimation, title, description);
+        enhancmentsList.add(ticket);
+        ArrayList<Ticket> listToSubmit = new ArrayList<>(enhancmentsList);
         enhancments.setValue(listToSubmit);
     }
 
-    public void addBug(String title, int estimation, String description) {
-        Bug bug = new Bug(title, estimation, description);
-        bugsList.add(bug);
-        ArrayList<Bug> listToSubmit = new ArrayList<>(bugsList);
-        bugs.setValue(listToSubmit);
-    }
+//    public void addBug(String title, int estimation, String description) {
+//        Ticket ticket = new Bug(title, estimation, description);
+//        enhancmentsList.add(ticket);
+//        ArrayList<Bug> listToSubmit = new ArrayList<>(bugsList);
+//        enhancments.setValue(listToSubmit);
+//    }
 
     public void filterTickets(String filter){
 
-        List<Enhancment> filteredList = enhancmentsList.stream().filter(enhancment -> enhancment.getTitle().toLowerCase().startsWith(filter.toLowerCase())).collect(Collectors.toList());
+        List<Ticket> filteredList = enhancmentsList.stream().filter(enhancment -> enhancment.getTitle().toLowerCase().startsWith(filter.toLowerCase())).collect(Collectors.toList());
         enhancments.setValue(filteredList);
 
     }
 
-    public void removeEnhancment(Enhancment enhancment) {
-        enhancmentsList.remove(enhancment);
-        ArrayList<Enhancment> listToSubmit = new ArrayList<>(enhancmentsList);
+    public void filterTicketsInProgress(String filter){
+
+        List<Ticket> filteredList = inProgressList.stream().filter(enhancment -> enhancment.getTitle().toLowerCase().startsWith(filter.toLowerCase())).collect(Collectors.toList());
+        inProgress.setValue(filteredList);
+
+    }
+
+    public void filterTicketsInDone(String filter){
+
+        List<Ticket> filteredList = inDoneList.stream().filter(enhancment -> enhancment.getTitle().toLowerCase().startsWith(filter.toLowerCase())).collect(Collectors.toList());
+        inDone.setValue(filteredList);
+
+    }
+
+    public void moveFromToDo2InProgress(Ticket ticket){
+        //Brisem element iz liste TO-DO
+        enhancmentsList.remove(ticket);
+        ArrayList<Ticket> listToSubmitTicket = new ArrayList<>(enhancmentsList);
+        enhancments.setValue(listToSubmitTicket);
+
+        //Taj element dodajem u listu InProgress
+        inProgressList.add(ticket);
+        ArrayList<Ticket> listToSubmitTicketInProgress = new ArrayList<>(inProgressList);
+        inProgress.setValue(listToSubmitTicketInProgress);
+    }
+
+    public void moveFromInProgress2InDone(Ticket ticket){
+        //Brisem element iz liste InProgress
+        inProgressList.remove(ticket);
+        ArrayList<Ticket> listToSubmitTicket = new ArrayList<>(inProgressList);
+        inProgress.setValue(listToSubmitTicket);
+
+        //Taj element dodajem u listu InDone
+        inDoneList.add(ticket);
+        ArrayList<Ticket> listToSubmitTicketInDone = new ArrayList<>(inDoneList);
+        inDone.setValue(listToSubmitTicketInDone);
+    }
+
+    public void deleteTicket(Ticket ticket){
+        enhancmentsList.remove(ticket);
+        ArrayList<Ticket>listToSubmit = new ArrayList<>(enhancmentsList);
         enhancments.setValue(listToSubmit);
     }
-
-    public void removeBug(Bug bug) {
-        bugsList.remove(bug);
-        ArrayList<Bug> listToSubmit = new ArrayList<>(bugsList);
-        bugs.setValue(listToSubmit);
-    }
-
-
+//    public void removeEnhancment(Ticket ticket) {
+//        enhancmentsList.remove(ticket);
+//        ArrayList<Ticket> listToSubmit = new ArrayList<>(enhancmentsList);
+//        enhancments.setValue(listToSubmit);
+//    }
+//
+//    public void removeBug(Bug bug) {
+//        bugsList.remove(bug);
+//        ArrayList<Bug> listToSubmit = new ArrayList<>(bugsList);
+//        bugs.setValue(listToSubmit);
+//    }
 }
